@@ -15,6 +15,8 @@ class Reader {
     private static final String MODIFIER_PRIVATE = "private";
     private static final String SPACE = " ";
     private static final String TODO = "//TODO";
+    private static final String SEMICOLON = ";";
+    private static final String EMPTY_STRING = "";
 
     static List<Field> read(String inputFile) throws FileNotFoundException {
 
@@ -76,7 +78,7 @@ class Reader {
 
                         System.out.println(splitted[i]);
                         System.out.println(field.type);
-                        field.name = splitted[++i];
+                        field.name = splitted[++i].replace(SEMICOLON, EMPTY_STRING);
 
                         System.out.println(splitted[i]);
                         System.out.println(field.name);
