@@ -34,7 +34,6 @@ class Reader {
 
             while (scanner.hasNextLine()) {
                 str = scanner.nextLine();
-                System.out.println(str);
 
                 if (str.contains(TODO)) {
                     continue;
@@ -52,36 +51,25 @@ class Reader {
                 if (isAnnotation) {
                     if (str.contains(ANNOTATION_COLUMN)) {
                         splitted = str.split(SPACE);
-                        System.out.println(Arrays.toString(splitted));
                         for (tmp = splitted[i = 0]; !tmp.equals(COLUMN); tmp = splitted[++i]) ;
                         if (i < splitted.length - 1) {
                             field.column = splitted[++i];
                         }
-                        System.out.println(splitted[i]);
-                        System.out.println(field.column);
                     } else if (str.contains(ANNOTATION_ALIAS)) {
                         splitted = str.split(SPACE);
-                        System.out.println(Arrays.toString(splitted));
                         for (tmp = splitted[i = 0]; !tmp.equals(ALIAS); tmp = splitted[++i]) ;
                         if (i < splitted.length - 1) {
                             field.column = splitted[++i];
                         }
-                        System.out.println(splitted[i]);
-                        System.out.println(field.column);
                     }
                 } else {
                     if (str.contains(MODIFIER_PRIVATE)) {
                         splitted = str.split(SPACE);
-                        System.out.println(Arrays.toString(splitted));
                         for (tmp = splitted[i = 0]; !tmp.equals(MODIFIER_PRIVATE); tmp = splitted[++i]) ;
-                        field.type = splitted[++i];
 
-                        System.out.println(splitted[i]);
-                        System.out.println(field.type);
+                        field.type = splitted[++i];
                         field.name = splitted[++i].replace(SEMICOLON, EMPTY_STRING);
 
-                        System.out.println(splitted[i]);
-                        System.out.println(field.name);
                         fields.add(field);
                         field = new Field();
                     }

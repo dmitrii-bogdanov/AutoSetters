@@ -35,7 +35,6 @@ class Writer {
     }
 
     private static String concat(String varName, Field field) {
-        System.out.println(field.name + " " + field.type + " " + field.column);
         return varName + DOT + SET
                 + upLeading(field.name) + OPENING_BRACKET
                 + getGetter(field.type) + COLUMN_START
