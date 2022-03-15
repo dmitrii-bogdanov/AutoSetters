@@ -54,7 +54,7 @@ class Writer {
             }
 
             int i = 0;
-            while (i < columns.size()-1) {
+            while (i < columns.size() - 1) {
                 fileWriter.write(concat(varName, columns.get(i++)));
             }
             fileWriter.write(concat(varName, columns.get(i), true));
@@ -79,7 +79,7 @@ class Writer {
         return QUOTES +
                 tableName + DOT
                 + getColumnName(column) + SPACE
-                + AS + getAlias(column) + (isLast ? EMPTY_STRING : COMMA) + SPACE
+                + AS + SPACE + getAlias(column) + (isLast ? EMPTY_STRING : COMMA) + SPACE
                 + getComment(column)
                 + LINE_END + QUOTES + SPACE + PLUS + RETURN
                 ;
@@ -95,15 +95,15 @@ class Writer {
 
     }
 
-    private static String getColumnName(Column column){
+    private static String getColumnName(Column column) {
         return column.name == null ? UNKNOWN : upper(column.name);
     }
 
-    private static String getAlias(Column column){
+    private static String getAlias(Column column) {
         return column.alias == null ? getColumnName(column) : upper(column.alias);
     }
 
-    private static String getComment(Column column){
+    private static String getComment(Column column) {
         return column.comment == null ? EMPTY_STRING : COMMENT + column.comment;
     }
 
