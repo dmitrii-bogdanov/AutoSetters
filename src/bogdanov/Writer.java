@@ -137,7 +137,7 @@ class Writer {
     private static String concatTextField(String varName, Field field) {
         return JASPER_TEXT_FIELD_START
                 + varName + DOT + GET
-                + upLeading(field.type) + FUNCTION_END
+                + upLeading(field.name) + FUNCTION_END
                 + JASPER_TEXT_FIELD_END + RETURN;
     }
 
